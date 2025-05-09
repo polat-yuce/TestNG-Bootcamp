@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
   3- Ad ve soyadı değiştirip tekrar kaydedidiniz.
  */
 
-public class _01_EditAAccoount extends BaseDriver {
+public class _01_EditAccount extends BaseDriver {
 
     @Test
     public void EditAccount(){
