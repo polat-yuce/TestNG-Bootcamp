@@ -19,11 +19,9 @@ public class BaseDriver {
 
     @BeforeClass
     public void BaslangicIslemleri(){
-        System.out.println("Başlangıç işlemleri yapılıyor");
-
         driver=new ChromeDriver();
 
-        //driver.manage().window().maximize(); // Ekranı max yapıyor.
+        driver.manage().window().maximize(); // Ekranı max yapıyor.
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); // 20 sn mühlet: sayfayı yükleme mühlet
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // 20 sn mühlet: elementi bulma mühleti
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -33,8 +31,6 @@ public class BaseDriver {
 
     @AfterClass
     public void KapanisIslemleri(){
-        System.out.println("Kapanis işlemleri yapılıyor");
-
         //Tools.Bekle(3);
         driver.quit();
     }
