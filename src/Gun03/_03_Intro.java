@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 
 public class _03_Intro {
 
-
     @Test
     public void Intro03_Test1(){ System.out.println("_03_Intro Test 1"); }
 
@@ -13,6 +12,5 @@ public class _03_Intro {
 
     @Test
     public void Intro03_Test3(){ System.out.println("_03_Intro Test 3"); }
-
 
 }

@@ -19,7 +19,6 @@ import org.testng.annotations.*;
 
 public class _02_Intro {
 
-
     @BeforeSuite
     public void BeforeSuite(){ System.out.println("Before Suite"); }
 
@@ -42,6 +41,7 @@ public class _02_Intro {
     @Test
     public void Intro02_Test2(){ System.out.println("_02_Intro Test 2"); }
 
+
     @AfterMethod
     public void AfterMethod(){ System.out.println("After Method"); }
 
@@ -56,5 +56,6 @@ public class _02_Intro {
 
     @AfterSuite
     public void AfterSuite(){ System.out.println("After Suite"); }
+
 
 }

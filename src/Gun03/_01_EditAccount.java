@@ -1,17 +1,17 @@
 package Gun03;
 
-import Utlity.BaseDriver;
-import Utlity.Tools;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.annotations.Test;
-
 /*
   Senaryo
   1- Siteyi açınız.
   2- Edit Account sayfasına ulaşınız.
   3- Ad ve soyadı değiştirip tekrar kaydedidiniz.
  */
+
+import Utlity.BaseDriver;
+import Utlity.Tools;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.Test;
 
 public class _01_EditAccount extends BaseDriver {
 
@@ -33,5 +33,6 @@ public class _01_EditAccount extends BaseDriver {
 
         Tools.SuccessMessageValidation();
     }
+
 
 }
