@@ -9,3 +9,10 @@
         </classes>
     </test>
 </suite>
+
+        <!--XML ile çalıştırdığı testlere parametre gönderebilir  -->
+        <!--XML de "Classes" öncesi parameter name="mesaj" value="Merhaba testing dünyası"></parameter> olarak tanımladık-->
+        <!--01_ContactUsParametre classı ta public void içine String parametre alacağını tanımladık -->
+        <!--01_ContactUsParametre de @Parameters("mesaj") xmldeki parametrenin name veriyoruz.Bu şekilde -->
+        <!--hangi parametre nereye gideceğini belirtmiş oluyoruz-->
+        <!--Artık Testteki methoda XML den parametre gönderebiliyoruz -->
