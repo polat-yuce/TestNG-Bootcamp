@@ -24,31 +24,26 @@ public class _01_Soru extends BaseDriver {
 //    onu kontrol edicem
 
     @Test
-    public void BrandsValidation()
-    {
+    public void BrandsValidation() {
         WebElement brandsLink = driver.findElement(By.linkText("Brands"));
         brandsLink.click();
 
-        List<WebElement> harfler=driver.findElements(By.cssSelector("[id='content'] h2")); //A C H
-        List<WebElement> markalarSatiri=driver.findElements(By.cssSelector("[id='content'] > div")); // Hav Htc
+        List<WebElement> harfler = driver.findElements(By.cssSelector("[id='content'] h2")); //A C H
+        List<WebElement> markalarSatiri = driver.findElements(By.cssSelector("[id='content'] > div")); // Hav Htc
 
         for (int i = 0; i < harfler.size(); i++) {
-            String harf= harfler.get(i).getText(); // A
-            WebElement harfinAltindakiSatir= markalarSatiri.get(i); // Apple Apple2
+            String harf = harfler.get(i).getText(); // A
+            WebElement harfinAltindakiSatir = markalarSatiri.get(i); // Apple Apple2
 
-            List<WebElement> markalar= harfinAltindakiSatir.findElements(By.tagName("div"));  //Apple Apple2
+            List<WebElement> markalar = harfinAltindakiSatir.findElements(By.tagName("div"));  //Apple Apple2
 
-            for (WebElement marka: markalar) {
-                System.out.println(harf+" "+marka.getText());
-                Assert.assertTrue(harf.charAt(0)==marka.getText().charAt(0), "Başlık ve marka uyumlu değil");
+            for (WebElement marka : markalar) {
+                System.out.println(harf + " " + marka.getText());
+                Assert.assertTrue(harf.charAt(0) == marka.getText().charAt(0), "Başlık ve marka uyumlu değil");
             }
-                //MArkanın ilk harfi Harf ile başlıyor mu?
-                //Assert.assertTrue(marka.startsWith(harf)
+            //MArkanın ilk harfi Harf ile başlıyor mu?
+            //Assert.assertTrue(marka.startsWith(harf)
         }
-
-
-
-
     }
 
 

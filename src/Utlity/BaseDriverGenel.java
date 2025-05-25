@@ -1,7 +1,5 @@
 package Utlity;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,26 +7,19 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 
 import java.time.Duration;
 
-public class BaseDriver {
-    public static Logger logEkle = LogManager.getLogger(); // Logları ekleyeceğim kuyrupu başlattım.
+public class BaseDriverGenel {
+
     public static WebDriver driver;
     public static WebDriverWait wait;
 
     @BeforeClass
-    public void BaslangicIslemleri() {
-        driver = new ChromeDriver();
-        logEkle.info("Driver başlatıldı");
-
-        // hata oluşmuş olsaydı
-        logEkle.error("Driver oluşturulurken hata oluştu");
+    public void BaslangicIslemleri(){
+        driver=new ChromeDriver();
 
         driver.manage().window().maximize(); // Ekranı max yapıyor.
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); // 20 sn mühlet: sayfayı yükleme mühlet
@@ -39,7 +30,7 @@ public class BaseDriver {
     }
 
     @AfterClass
-    public void KapanisIslemleri() {
+    public void KapanisIslemleri(){
         //Tools.Bekle(3);
         driver.quit();
     }
@@ -50,7 +41,6 @@ public class BaseDriver {
 
         WebElement email=driver.findElement(By.id("input-email"));
         email.sendKeys("testng1@gmail.com");
-        logEkle.info("Şu anda "+"testng1@gmail.com"+ " isimli user login olmak için gönderildi");
 
         WebElement password=driver.findElement(By.id("input-password"));
         password.sendKeys("123qweasd");
@@ -59,27 +49,7 @@ public class BaseDriver {
         loginBtn.click();
 
         wait.until(ExpectedConditions.titleIs("My Account"));
-        logEkle.debug("Login işlemi testine geçiliyor");
         Assert.assertTrue(driver.getTitle().equals("My Account"), "Login olunamadı");
-        logEkle.debug("Login işlemi başarıyla yapıldı");
-        logEkle.warn("Login işlemlerinde testng1@gmail.com kullanıca önemli hata oluştu");
 
-    }
-
-
-    @BeforeMethod
-    public void BeforeMetod()
-    {
-        logEkle.info("Metod çalışmaya başlayacak");
-    }
-
-    @AfterMethod
-    public void AfterMetod(ITestResult sonuc) // ITestResult: tesin sonuç ve isim bilgisini olduğu değişkeni
-    {
-        logEkle.info(sonuc.getName()+" Metod çalışması tamalandı");
-        logEkle.info(sonuc.getStatus() == 1 ? "Passed" : "failed");  //ternary operatörü
-
-        //çok önemli fata oldu
-        logEkle.fatal(sonuc.getName()+" Metod da çok önemli hata oldu");
     }
 }
