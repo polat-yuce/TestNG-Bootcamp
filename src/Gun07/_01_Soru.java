@@ -29,19 +29,17 @@ public class _01_Soru extends BaseDriver {
 
 
     @Test
-    public void addToCart()
-    {
-        BaseDriver.logEkle.info("addToCart testi başladı");
-        _05_PlaceOrder_Elementleri poe=new _05_PlaceOrder_Elementleri();
-        _01_Elements sre= new _01_Elements();
+    public void addToCart() {
+        _05_PlaceOrder_Elementleri poe = new _05_PlaceOrder_Elementleri();
+        _01_Elements sre = new _01_Elements();
 
-        poe.searchInput.sendKeys("ipod"+ Keys.ENTER);
+        poe.searchInput.sendKeys("ipod" + Keys.ENTER);
 
-        int randomSecim= Tools.randomGenerator(sre.productListAddCart.size()); // 0,1,2,3
+        int randomSecim = Tools.randomGenerator(sre.productListAddCart.size()); // 0,1,2,3
         System.out.println(randomSecim);
 
         //tıkaltmadan önce ürürnün ismini saklayalım
-        String tiklatilacakUrununAdi=sre.productListCaption.get(randomSecim).getText();
+        String tiklatilacakUrununAdi = sre.productListCaption.get(randomSecim).getText();
         sre.productListAddCart.get(randomSecim).click(); // Add chart a tıklandı
 
         poe.shoppingChart.click();
@@ -55,8 +53,8 @@ public class _01_Soru extends BaseDriver {
 //            }
 //        }
 
-        boolean urunBulundu=Tools.listContainsString(sre.productListBasket, tiklatilacakUrununAdi); // yukarıdaki döngü metod yapıldı
-        Assert.assertTrue(urunBulundu,"Eklediğiniz sepette bulunamadı");
+        boolean urunBulundu = Tools.listContainsString(sre.productListBasket, tiklatilacakUrununAdi); // yukarıdaki döngü metod yapıldı
+        Assert.assertTrue(urunBulundu, "Eklediğiniz sepette bulunamadı");
 
 
     }
